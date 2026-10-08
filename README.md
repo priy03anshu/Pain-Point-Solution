@@ -180,18 +180,20 @@ proxy in front of the web service when hosting this stack publicly.
 
 ## 🌐 Production deployment
 
-The web app sends API requests to its own `/api/v1` origin. Its Next.js server
-proxies those requests to the API service, so the API address is not embedded
-in the browser bundle.
+The public website and curated GD topic preview work without setting an
+environment variable. Sign-in, registration, live GD sessions, and other
+backend-backed actions require the API service; without an API connection,
+those actions respond with a clear service-unavailable message instead of
+looping back to the website.
 
-On Render, deploy the Next.js app as a **Web Service** (not a Static Site) and
-set `API_URL` in that service's environment to the API service's reachable
-origin, without `/api/v1` (for example, `https://your-api.example.com` or the
-private service URL when both services are in the same region). Do not set it
-to `localhost` for a hosted deployment. The current Render web deployment
-returns an “API service is not configured” response until this variable is
-set, so GD sessions, sign-in, and other API-backed features will not work
-before configuration.
+When the API is deployed, the Next.js server proxies `/api/v1` requests to it,
+so the API address is not embedded in the browser bundle.
+
+On Render, deploy the Next.js app as a **Web Service** (not a Static Site).
+To enable backend-backed features, set `API_URL` in that service's environment
+to the API service's reachable origin, without `/api/v1` (for example,
+`https://your-api.example.com` or the private service URL when both services
+are in the same region). Do not set it to `localhost` for a hosted deployment.
 
 Also configure the API service with a persistent MongoDB connection string,
 unique `JWT_ACCESS_SECRET` and `JWT_REFRESH_SECRET` values of at least 32

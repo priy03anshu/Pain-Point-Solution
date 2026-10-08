@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { DEFAULT_GD_TOPICS } from '@/lib/gd-topics';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -21,9 +22,31 @@ async function proxyRequest(
       : null;
 
   if (!apiOrigin) {
-    console.error('API_URL must be configured in production.');
+    const isTopicListRequest =
+      request.method === 'GET' &&
+      params.path.length === 2 &&
+      params.path[0] === 'gd' &&
+      params.path[1] === 'topics';
+
+    if (isTopicListRequest) {
+      return NextResponse.json({ success: true, data: DEFAULT_GD_TOPICS });
+    }
+
     return NextResponse.json(
-      { success: false, message: 'API service is not configured.' },
+      {
+        success: false,
+        message: 'This feature needs the PlacementOS API, which is not connected yet.',
+      },
+      { status: 503 }
+    );
+  }
+
+  if (new URL(apiOrigin).origin === request.nextUrl.origin) {
+    return NextResponse.json(
+      {
+        success: false,
+        message: 'API_URL must point to the API service, not back to the website.',
+      },
       { status: 503 }
     );
   }

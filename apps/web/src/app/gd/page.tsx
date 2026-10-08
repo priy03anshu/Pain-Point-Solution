@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { apiClient } from '@/lib/api-client';
+import { DEFAULT_GD_TOPICS, GDTopic } from '@/lib/gd-topics';
 import {
   GDSessionDTO,
   GDParticipantDTO,
@@ -39,52 +40,6 @@ import {
   Layers,
   Info
 } from 'lucide-react';
-
-interface GDTopic {
-  id: string;
-  category: string;
-  title: string;
-  description: string;
-  difficulty: 'Easy' | 'Medium' | 'Hard';
-}
-
-const DEFAULT_TOPICS: GDTopic[] = [
-  {
-    id: 'topic-1',
-    category: 'Technology & AI Ethics',
-    title: 'Will Generative AI Eliminate Entry-Level Engineering Roles or Elevate Developer Productivity?',
-    description: 'Debate impact on campus hiring, junior engineer career ladders, and shift from syntax to architecture.',
-    difficulty: 'Medium'
-  },
-  {
-    id: 'topic-2',
-    category: 'Economy & Business Strategy',
-    title: 'Is the Indian Startup Ecosystem Maturing or Overvalued: Growth vs Profitability?',
-    description: 'Examine unit economics, venture funding winter, IPO readiness, and path-to-profitability mandates.',
-    difficulty: 'Hard'
-  },
-  {
-    id: 'topic-3',
-    category: 'Work Culture & Ethics',
-    title: 'Moonlighting: Ethical Violation of Company Trust or Employee Free-Market Right?',
-    description: 'Explore dual employment in tech, IP security, conflict of interest, and sustainable work-life boundaries.',
-    difficulty: 'Medium'
-  },
-  {
-    id: 'topic-4',
-    category: 'Campus & Career Readiness',
-    title: 'Should College Degrees be Replaced by Skill-Based Micro-Credentials in Tech Placements?',
-    description: 'Debate institutional pedagogy, peer networks, and rigorous foundations vs agile industry micro-skills.',
-    difficulty: 'Easy'
-  },
-  {
-    id: 'topic-5',
-    category: 'Data & Privacy',
-    title: 'Digital Personal Data Protection: Essential Citizen Right vs Friction for Tech Innovation?',
-    description: 'Discuss user privacy rights, compliance overhead for startups, and cross-border AI training data.',
-    difficulty: 'Hard'
-  }
-];
 
 const PREVIEW_PERSONAS = [
   {
@@ -154,12 +109,12 @@ const INTERJECTION_PROMPTS = [
 
 export default function GDPracticeRoomPage() {
   // Session setup state
-  const [topics, setTopics] = useState<GDTopic[]>(DEFAULT_TOPICS);
-  const [selectedTopic, setSelectedTopic] = useState<string>(DEFAULT_TOPICS[0].title);
+  const topics = DEFAULT_GD_TOPICS;
+  const [selectedTopic, setSelectedTopic] = useState<string>(DEFAULT_GD_TOPICS[0].title);
   const [customTopic, setCustomTopic] = useState('');
   const [timeLimit, setTimeLimit] = useState<number>(10);
-  const [isLoadingTopics, setIsLoadingTopics] = useState(false);
   const [isInitializing, setIsInitializing] = useState(false);
+  const [serviceError, setServiceError] = useState<string | null>(null);
 
   // Active Session state
   const [session, setSession] = useState<GDSessionDTO | null>(null);
@@ -186,24 +141,8 @@ export default function GDPracticeRoomPage() {
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const autoDebateTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Load curated topics on mount
+  // Static prompts keep the public practice preview available without a backend.
   useEffect(() => {
-    async function loadTopics() {
-      setIsLoadingTopics(true);
-      try {
-        const fetched = await apiClient.get<GDTopic[]>('/gd/topics');
-        if (fetched && fetched.length > 0) {
-          setTopics(fetched);
-          setSelectedTopic(fetched[0].title);
-        }
-      } catch (e) {
-        // Fallback to DEFAULT_TOPICS already initialized
-      } finally {
-        setIsLoadingTopics(false);
-      }
-    }
-    loadTopics();
-
     // Check Speech Recognition capability
     if (typeof window !== 'undefined') {
       const SpeechRecognition =
@@ -291,6 +230,7 @@ export default function GDPracticeRoomPage() {
     const topicToUse = customTopic.trim() ? customTopic.trim() : selectedTopic;
     if (!topicToUse) return;
 
+    setServiceError(null);
     setIsInitializing(true);
     try {
       const data = await apiClient.post<GDSessionDTO>('/gd/session', {
@@ -308,6 +248,11 @@ export default function GDPracticeRoomPage() {
       }
     } catch (e) {
       console.error('Failed to initialize GD session:', e);
+      setServiceError(
+        e instanceof Error
+          ? e.message
+          : 'Live discussion sessions are temporarily unavailable.'
+      );
     } finally {
       setIsInitializing(false);
     }
@@ -691,6 +636,14 @@ export default function GDPracticeRoomPage() {
                       </>
                     )}
                   </button>
+                  {serviceError && (
+                    <div
+                      role="alert"
+                      className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-3 text-sm text-amber-200"
+                    >
+                      {serviceError}
+                    </div>
+                  )}
                 </div>
               </div>
 
