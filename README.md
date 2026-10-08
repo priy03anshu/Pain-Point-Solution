@@ -29,8 +29,11 @@ npm run seed
 
 Run
 // one in a separate terminal 
+
 npm run dev:api
+
 npm run dev:web
+
 npm run dev:ai
 
 
