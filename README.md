@@ -171,6 +171,19 @@ Run the complete application using:
 docker compose -f docker/docker-compose.yml up --build
 ```
 
+## 🌐 Production deployment
+
+The web app sends API requests to its own `/api/v1` origin. Its Next.js server
+proxies those requests to the API service, so the API address is not embedded
+in the browser bundle.
+
+When deploying the web and API as separate services, set `API_URL` on the web
+service to the API service's reachable origin (for example,
+`https://your-api.example.com`, without `/api/v1`). Do not set it to
+`localhost` for a hosted deployment. For local development, `API_URL` defaults
+to `http://localhost:5000`. In Docker Compose, it is set to
+`http://api:5000` so the web container can reach the API container.
+
 ---
 
 ## 🎯 Core Concept
