@@ -142,7 +142,7 @@ export default function AssessmentRunnerPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#090D16] flex flex-col items-center justify-center p-4">
+      <div className="workspace-page min-h-screen bg-[#090D16] flex flex-col items-center justify-center p-4">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mb-4" />
         <p className="text-sm text-slate-400">Calibrating your initial placement diagnostic...</p>
       </div>
@@ -152,7 +152,7 @@ export default function AssessmentRunnerPage() {
   // --- RESULT VIEW ---
   if (result) {
     return (
-      <div className="min-h-screen bg-[#090D16] py-12 px-4 sm:px-6 lg:px-8">
+      <div className="workspace-page min-h-screen bg-[#090D16] py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="text-center">
             <span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-semibold uppercase tracking-wider">
@@ -281,14 +281,14 @@ export default function AssessmentRunnerPage() {
   // --- ACTIVE RUNNER VIEW ---
   if (!currentQuestion) {
     return (
-      <div className="min-h-screen bg-[#090D16] flex items-center justify-center p-4">
+      <div className="workspace-page min-h-screen bg-[#090D16] flex items-center justify-center p-4">
         <p className="text-slate-400">No questions available.</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#090D16] py-10 px-4 sm:px-6 lg:px-8">
+    <div className="workspace-page min-h-screen bg-[#090D16] py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto space-y-6">
         {/* Top Header Bar */}
         <div className="flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded-2xl">

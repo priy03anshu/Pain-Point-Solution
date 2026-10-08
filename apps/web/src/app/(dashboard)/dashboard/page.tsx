@@ -89,7 +89,7 @@ export default function DashboardPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#090D16] flex flex-col items-center justify-center p-4">
+      <div className="workspace-page min-h-screen bg-[#090D16] flex flex-col items-center justify-center p-4">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mb-4" />
         <p className="text-sm text-slate-400">Loading your command center...</p>
       </div>
@@ -111,7 +111,7 @@ export default function DashboardPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#090D16] text-slate-100">
+    <div className="workspace-page min-h-screen bg-[#090D16] text-slate-100">
       {/* Top Command Bar */}
       <header className="border-b border-slate-800/80 bg-slate-900/60 backdrop-blur sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">

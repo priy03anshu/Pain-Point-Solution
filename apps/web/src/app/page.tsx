@@ -4,24 +4,21 @@ import React from 'react';
 import Link from 'next/link';
 import {
   ArrowRight,
-  CheckCircle2,
   TrendingUp,
   Brain,
   ShieldCheck,
   Target,
   Sparkles,
-  BarChart3,
   Clock,
   Compass,
-  FileText,
   Users
 } from 'lucide-react';
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-[#090D16] text-slate-100 selection:bg-blue-600">
+    <div className="landing-page min-h-screen bg-[#090D16] text-slate-100 selection:bg-blue-600">
       {/* Navigation Header */}
-      <nav className="border-b border-slate-800/80 bg-[#090D16]/80 backdrop-blur sticky top-0 z-50">
+      <nav className="landing-nav border-b border-slate-800/80 bg-[#090D16]/80 backdrop-blur sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
           <div className="flex items-center space-x-3 shrink-0">
             <div className="h-9 w-9 rounded-lg bg-blue-600 flex items-center justify-center font-bold text-white shadow-lg shadow-blue-500/20">
@@ -33,11 +30,11 @@ export default function LandingPage() {
           </div>
 
           <div className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm font-medium text-slate-300">
-            <Link href="/gd" className="text-purple-400 font-semibold flex items-center space-x-1 hover:text-purple-300 transition-colors">
+            <Link href="/gd" className="text-blue-200 font-semibold flex items-center space-x-1 hover:text-white transition-colors">
               <Users className="w-3.5 h-3.5" />
               <span>AI GD Room</span>
             </Link>
-            <Link href="/roadmap" className="text-amber-400 font-semibold flex items-center space-x-1 hover:text-amber-300 transition-colors">
+            <Link href="/roadmap" className="text-blue-200 font-semibold flex items-center space-x-1 hover:text-white transition-colors">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Career Roadmapper</span>
             </Link>
@@ -65,72 +62,62 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-24 pb-20 overflow-hidden">
+      <section className="relative pt-20 pb-24 sm:pt-28 sm:pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent -z-10" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-6">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>AI Career Intelligence & Placement Command Center</span>
+        <div className="landing-hero-grid max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="landing-hero-copy">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-300/15 text-blue-200 text-[11px] font-semibold uppercase tracking-[0.12em] mb-7">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Career intelligence for your next move</span>
+            </div>
+
+            <h1 className="landing-hero-title text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+              Prepare smarter.{' '}
+              <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
+                Get placement ready.
+              </span>
+            </h1>
+
+            <p className="landing-hero-description mt-6 text-lg sm:text-xl max-w-2xl leading-relaxed">
+              A focused preparation coach that helps you understand your strengths, spot opportunities, and decide what to work on next.
+            </p>
+
+            <div className="landing-hero-actions mt-9 flex flex-col sm:flex-row items-center gap-3">
+              <Link
+                href="/register"
+                className="w-full sm:w-auto px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl shadow-lg shadow-blue-950/40 flex items-center justify-center gap-2 transition-all transform hover:-translate-y-0.5"
+              >
+                <span>Start Assessment</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/gd"
+                className="w-full sm:w-auto px-5 py-3.5 bg-white/[0.04] hover:bg-white/[0.08] text-slate-100 font-semibold rounded-xl border border-white/10 flex items-center justify-center gap-2 transition-all"
+              >
+                <Users className="w-4 h-4 text-blue-200" />
+                <span>Try GD Practice</span>
+              </Link>
+              <Link
+                href="/roadmap"
+                className="w-full sm:w-auto px-5 py-3.5 bg-transparent hover:bg-white/[0.04] text-slate-300 hover:text-white font-medium rounded-xl border border-transparent hover:border-white/10 flex items-center justify-center gap-2 transition-all"
+              >
+                <Compass className="w-4 h-4" />
+                <span>Explore Roadmap</span>
+              </Link>
+            </div>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight">
-            Prepare Smarter.{' '}
-            <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
-              Get Placement Ready.
-            </span>
-          </h1>
-
-          <p className="mt-6 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Not another passive video course. A closed-loop diagnostic coach that diagnoses your weaknesses, computes your deterministic readiness score, and tells you exactly what to prepare today.
-          </p>
-
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/register"
-              className="w-full sm:w-auto px-7 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl shadow-xl shadow-blue-600/30 flex items-center justify-center space-x-2 transition-all transform hover:-translate-y-0.5"
-            >
-              <span>Start Assessment</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              href="/gd"
-              className="w-full sm:w-auto px-7 py-3.5 bg-gradient-to-r from-purple-800/80 to-indigo-800/80 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-xl border border-purple-500/40 flex items-center justify-center space-x-2 transition-all shadow-lg shadow-purple-600/25 transform hover:-translate-y-0.5"
-            >
-              <Users className="w-4 h-4 text-purple-300" />
-              <span>AI GD Practice Room</span>
-            </Link>
-            <Link
-              href="/roadmap"
-              className="w-full sm:w-auto px-7 py-3.5 bg-slate-900 hover:bg-slate-800 text-amber-300 font-semibold rounded-xl border border-amber-500/30 flex items-center justify-center space-x-2 transition-all shadow-lg shadow-amber-500/10"
-            >
-              <Compass className="w-4 h-4 text-amber-400" />
-              <span>Career Roadmapper</span>
-            </Link>
-          </div>
-
-          {/* Core Loop Indicators */}
-          <div className="mt-14 max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-3 p-4 rounded-2xl bg-slate-900/60 border border-slate-800 backdrop-blur text-xs font-medium text-slate-300">
-            <div className="flex items-center space-x-2 justify-center py-2">
-              <Compass className="w-4 h-4 text-blue-400" />
-              <span>1. Diagnosis</span>
+          <aside className="landing-steps" aria-label="Placement preparation journey">
+            <div className="px-1 pb-3 mb-2 border-b border-white/10">
+              <p className="text-[11px] uppercase tracking-[0.16em] font-semibold text-blue-200/80">A clearer path forward</p>
+              <p className="mt-1 text-sm text-slate-400">One focused step at a time</p>
             </div>
-            <div className="flex items-center space-x-2 justify-center py-2">
-              <Target className="w-4 h-4 text-indigo-400" />
-              <span>2. Guidance</span>
-            </div>
-            <div className="flex items-center space-x-2 justify-center py-2">
-              <Clock className="w-4 h-4 text-purple-400" />
-              <span>3. Daily Plan</span>
-            </div>
-            <div className="flex items-center space-x-2 justify-center py-2">
-              <Brain className="w-4 h-4 text-pink-400" />
-              <span>4. AI Feedback</span>
-            </div>
-            <div className="col-span-2 md:col-span-1 flex items-center space-x-2 justify-center py-2">
-              <TrendingUp className="w-4 h-4 text-emerald-400" />
-              <span>5. Progress</span>
-            </div>
-          </div>
+            <div className="landing-step"><span className="landing-step-index"><Compass className="w-4 h-4" /></span><span>01&nbsp; Diagnosis</span></div>
+            <div className="landing-step"><span className="landing-step-index"><Target className="w-4 h-4" /></span><span>02&nbsp; Guidance</span></div>
+            <div className="landing-step"><span className="landing-step-index"><Clock className="w-4 h-4" /></span><span>03&nbsp; Daily plan</span></div>
+            <div className="landing-step"><span className="landing-step-index"><Brain className="w-4 h-4" /></span><span>04&nbsp; Feedback</span></div>
+            <div className="landing-step"><span className="landing-step-index"><TrendingUp className="w-4 h-4" /></span><span>05&nbsp; Progress</span></div>
+          </aside>
         </div>
       </section>
 

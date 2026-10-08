@@ -10,22 +10,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: '#090D16',
-        card: '#111827',
-        border: '#1F2937',
+        background: '#080D18',
+        card: '#101827',
+        border: '#263449',
         primary: {
-          DEFAULT: '#3B82F6',
+          DEFAULT: '#4F83F4',
           foreground: '#FFFFFF',
-          hover: '#2563EB'
+          hover: '#3D70DF'
         },
         accent: {
-          DEFAULT: '#6366F1',
+          DEFAULT: '#7CA8FF',
           foreground: '#FFFFFF'
         },
         success: '#10B981',
         warning: '#F59E0B',
         destructive: '#EF4444',
-        muted: '#9CA3AF'
+        muted: '#9AA8BC'
       }
     }
   },
