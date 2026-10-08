@@ -23,11 +23,14 @@ app.use(helmet());
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Allow localhost dev origins and configured web client
-      if (!origin || origin.startsWith('http://localhost:')) {
+      if (
+        !origin ||
+        origin === config.corsOrigin ||
+        (config.env !== 'production' && origin.startsWith('http://localhost:'))
+      ) {
         callback(null, true);
       } else {
-        callback(null, true);
+        callback(new Error('Origin is not allowed by CORS.'));
       }
     },
     credentials: true

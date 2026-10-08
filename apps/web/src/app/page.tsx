@@ -22,17 +22,17 @@ export default function LandingPage() {
     <div className="min-h-screen bg-[#090D16] text-slate-100 selection:bg-blue-600">
       {/* Navigation Header */}
       <nav className="border-b border-slate-800/80 bg-[#090D16]/80 backdrop-blur sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
+          <div className="flex items-center space-x-3 shrink-0">
             <div className="h-9 w-9 rounded-lg bg-blue-600 flex items-center justify-center font-bold text-white shadow-lg shadow-blue-500/20">
               P
             </div>
-            <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+            <span className="text-lg sm:text-xl font-bold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
               PlacementOS
             </span>
           </div>
 
-          <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+          <div className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm font-medium text-slate-300">
             <Link href="/gd" className="text-purple-400 font-semibold flex items-center space-x-1 hover:text-purple-300 transition-colors">
               <Users className="w-3.5 h-3.5" />
               <span>AI GD Room</span>
@@ -43,22 +43,21 @@ export default function LandingPage() {
             </Link>
             <a href="#how-it-works" className="hover:text-blue-400 transition-colors">How It Works</a>
             <a href="#features" className="hover:text-blue-400 transition-colors">Core Features</a>
-            <a href="#readiness" className="hover:text-blue-400 transition-colors">Readiness Formula</a>
-            <a href="#faq" className="hover:text-blue-400 transition-colors">FAQ</a>
           </div>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center gap-1 sm:gap-3 shrink-0">
             <Link
               href="/login"
-              className="text-sm font-medium text-slate-300 hover:text-white px-3 py-2 rounded-md transition-colors"
+              className="text-sm font-medium text-slate-300 hover:text-white px-2 sm:px-3 py-2 rounded-md transition-colors whitespace-nowrap"
             >
               Sign In
             </Link>
             <Link
               href="/register"
-              className="text-sm font-semibold bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg shadow-blue-600/25 transition-all flex items-center space-x-2"
+              aria-label="Get started"
+              className="text-sm font-semibold bg-blue-600 hover:bg-blue-500 text-white px-3 sm:px-4 py-2 rounded-lg shadow-lg shadow-blue-600/25 transition-all flex items-center gap-2 whitespace-nowrap"
             >
-              <span>Get Started</span>
+              <span className="hidden sm:inline">Get Started</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -139,7 +138,7 @@ export default function LandingPage() {
       <section className="py-20 bg-slate-950/50 border-y border-slate-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold tracking-tight text-white">Why 80% of Students Struggle in Placements</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-white">Turn placement preparation into a focused plan</h2>
             <p className="mt-4 text-slate-400 text-base">
               Students waste months bingeing content tutorials without knowing if they are actually improving where companies test them.
             </p>
@@ -186,11 +185,14 @@ export default function LandingPage() {
             <span className="text-blue-400 text-xs font-semibold uppercase tracking-wider">Command Center Experience</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2">Opening Your Dashboard Feels Like Mission Control</h2>
             <p className="mt-4 text-slate-400">
-              Clear hierarchy answering: Where am I now? What is stopping me? What should I do next?
+              An example of the insights you can get after completing your assessment.
             </p>
           </div>
 
           <div className="rounded-2xl border border-slate-800 bg-slate-900/90 shadow-2xl overflow-hidden p-6 sm:p-8">
+            <p className="mb-6 text-center text-xs text-slate-400">
+              Illustrative preview — these sample values are not real student results.
+            </p>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Readiness Score Card */}
               <div className="p-6 rounded-xl bg-slate-950 border border-slate-800/80 flex flex-col justify-between">
@@ -198,12 +200,12 @@ export default function LandingPage() {
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Placement Readiness</span>
                     <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                      Job Ready
+                      Sample
                     </span>
                   </div>
                   <div className="mt-4 flex items-baseline space-x-2">
                     <span className="text-5xl font-extrabold text-white">68%</span>
-                    <span className="text-sm text-emerald-400 font-semibold">+8% this week</span>
+                    <span className="text-sm text-emerald-400 font-semibold">Example</span>
                   </div>
                   <p className="mt-2 text-xs text-slate-400">Target Role: Full Stack Software Engineer</p>
                 </div>
@@ -226,7 +228,7 @@ export default function LandingPage() {
                     Situational Communication Under Pressure
                   </h4>
                   <p className="mt-2 text-xs text-slate-400 leading-relaxed">
-                    Diagnostic shows 40% accuracy in structured conflict framing. Communication is currently your primary bottleneck, not technical DSA.
+                    Example insight based on a completed communication diagnostic.
                   </p>
                 </div>
                 <div className="mt-4 p-3 rounded-lg bg-amber-500/10 text-amber-300 text-xs font-medium">
@@ -331,7 +333,7 @@ export default function LandingPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-white">Ready to Know Your Real Placement Readiness?</h2>
           <p className="mt-4 text-slate-400 text-sm">
-            Join thousands of students diagnosed and prepared across top engineering and management companies.
+            Start with a short assessment, then focus your practice on the areas you want to improve.
           </p>
           <div className="mt-8">
             <Link

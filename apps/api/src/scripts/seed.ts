@@ -7,6 +7,7 @@ import { Company } from '../models/Company';
 import { Assessment } from '../models/Assessment';
 import { Gamification } from '../models/Gamification';
 import { hashPassword } from '../common/utils/hash';
+import { config } from '../config/env';
 
 const sampleQuestions = [
   // --- Technical: Data Structures & Algorithms ---
@@ -292,6 +293,13 @@ async function seed() {
     await Company.deleteMany({});
     await Company.insertMany(sampleCompanies);
     console.log(`[Seed] Successfully seeded ${sampleCompanies.length} company profiles.`);
+
+    if (config.env === 'production') {
+      console.log('[Seed] Skipping demo accounts in production.');
+      await disconnectDB();
+      console.log('[Seed] Database seeding completed successfully.');
+      process.exit(0);
+    }
 
     // 3. Seed Default Test User: student@placementos.com
     await User.deleteMany({ email: { $in: ['student@placementos.com', 'admin@placementos.com'] } });

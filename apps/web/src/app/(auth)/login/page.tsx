@@ -105,10 +105,6 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <div className="mt-6 text-center text-xs text-slate-400">
-          Demo student account: <span className="text-slate-300">student@placementos.com / Placement@123</span>
-        </div>
-
         <div className="mt-6 pt-6 border-t border-slate-800 text-center text-sm text-slate-400">
           Don't have an account?{' '}
           <Link href="/register" className="text-blue-400 hover:underline font-medium">

@@ -5,6 +5,9 @@ import { QueryProvider } from '@/providers/QueryProvider';
 export const metadata: Metadata = {
   title: 'PlacementOS — Career Intelligence & AI Placement Coach',
   description: 'AI-powered placement preparation platform. Diagnosis → Guidance → Practice → Feedback → Progress for students of any degree.',
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({

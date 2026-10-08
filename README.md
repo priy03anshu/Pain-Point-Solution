@@ -165,11 +165,18 @@ Open **http://localhost:3000**
 
 ## 🐳 Docker
 
-Run the complete application using:
+Copy `.env.example` to `.env`, set unique random values for
+`JWT_ACCESS_SECRET`, `JWT_REFRESH_SECRET`, and `AI_SERVICE_SECRET`, and provide
+an `LLM_PROVIDER` credential if you enable a hosted AI provider. The secrets
+must not be checked into source control. Then run:
 
 ```bash
 docker compose -f docker/docker-compose.yml up --build
 ```
+
+Only the web service is bound to host loopback; the API, database, Redis, and
+AI service stay on the private Compose network. Use a TLS-terminating reverse
+proxy in front of the web service when hosting this stack publicly.
 
 ## 🌐 Production deployment
 
@@ -177,12 +184,23 @@ The web app sends API requests to its own `/api/v1` origin. Its Next.js server
 proxies those requests to the API service, so the API address is not embedded
 in the browser bundle.
 
-When deploying the web and API as separate services, set `API_URL` on the web
-service to the API service's reachable origin (for example,
-`https://your-api.example.com`, without `/api/v1`). Do not set it to
-`localhost` for a hosted deployment. For local development, `API_URL` defaults
-to `http://localhost:5000`. In Docker Compose, it is set to
-`http://api:5000` so the web container can reach the API container.
+On Render, deploy the Next.js app as a **Web Service** (not a Static Site) and
+set `API_URL` in that service's environment to the API service's reachable
+origin, without `/api/v1` (for example, `https://your-api.example.com` or the
+private service URL when both services are in the same region). Do not set it
+to `localhost` for a hosted deployment. The current Render web deployment
+returns an “API service is not configured” response until this variable is
+set, so GD sessions, sign-in, and other API-backed features will not work
+before configuration.
+
+Also configure the API service with a persistent MongoDB connection string,
+unique `JWT_ACCESS_SECRET` and `JWT_REFRESH_SECRET` values of at least 32
+characters, `WEB_URL` set to the web service's public origin, and the correct
+AI service settings. Select a real AI provider and configure its API key for
+production rather than using the development `mock` provider. Keep secrets in
+Render's environment settings rather than source control. In Docker Compose,
+`API_URL=http://api:5000` is set for the private service network; local
+non-Docker development defaults to `http://localhost:5000`.
 
 ---
 

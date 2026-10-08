@@ -24,7 +24,7 @@ async function proxyRequest(
     console.error('API_URL must be configured in production.');
     return NextResponse.json(
       { success: false, message: 'API service is not configured.' },
-      { status: 500 }
+      { status: 503 }
     );
   }
 
