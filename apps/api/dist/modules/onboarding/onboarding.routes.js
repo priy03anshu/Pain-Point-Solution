@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const onboarding_controller_1 = require("./onboarding.controller");
+const auth_1 = require("../../common/middleware/auth");
+const validate_1 = require("../../common/middleware/validate");
+const shared_1 = require("@placementos/shared");
+const router = (0, express_1.Router)();
+router.use(auth_1.authenticate);
+router.get('/status', onboarding_controller_1.OnboardingController.getStatus);
+router.get('/suggestions', onboarding_controller_1.OnboardingController.getSuggestions);
+router.post('/step', (0, validate_1.validateBody)(shared_1.onboardingStepSchema), onboarding_controller_1.OnboardingController.saveStep);
+router.post('/complete', (0, validate_1.validateBody)(shared_1.onboardingCompleteSchema), onboarding_controller_1.OnboardingController.complete);
+exports.default = router;

@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const gd_controller_1 = require("./gd.controller");
+const router = (0, express_1.Router)();
+router.get('/topics', gd_controller_1.GDController.getTopics);
+router.post('/sessions', gd_controller_1.GDController.createSession);
+router.post('/sessions/:id/turn', gd_controller_1.GDController.processTurn);
+router.post('/sessions/:id/ai-turn', gd_controller_1.GDController.generateAITurn);
+router.post('/sessions/:id/conclude', gd_controller_1.GDController.concludeSession);
+exports.default = router;

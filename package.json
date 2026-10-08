@@ -1,0 +1,25 @@
+{
+  "name": "placementos",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI-powered placement preparation platform",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n \"API,WEB,AI\" -c \"blue,green,magenta\" \"npm run dev:api\" \"npm run dev:web\" \"npm run dev:ai\"",
+    "dev:api": "npm --workspace=apps/api run dev",
+    "dev:web": "npm --workspace=apps/web run dev",
+    "dev:ai": "cd apps/ai-service && python -m uvicorn app.main:app --reload --port 8000",
+    "build": "npm run build --workspaces",
+    "test": "npm --workspace=apps/api run test",
+    "seed": "npm --workspace=apps/api run seed",
+    "docker:up": "docker compose -f docker/docker-compose.yml up --build",
+    "docker:down": "docker compose -f docker/docker-compose.yml down"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.4.5"
+  }
+}

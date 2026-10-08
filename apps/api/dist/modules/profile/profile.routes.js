@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const profile_controller_1 = require("./profile.controller");
+const auth_1 = require("../../common/middleware/auth");
+const validate_1 = require("../../common/middleware/validate");
+const shared_1 = require("@placementos/shared");
+const router = (0, express_1.Router)();
+router.use(auth_1.authenticate);
+router.get('/', profile_controller_1.ProfileController.getProfile);
+router.put('/', (0, validate_1.validateBody)(shared_1.updateProfileSchema), profile_controller_1.ProfileController.updateProfile);
+exports.default = router;

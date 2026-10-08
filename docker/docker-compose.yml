@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: placementos-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: placementos
+
+  redis:
+    image: redis:7.2-alpine
+    container_name: placementos-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+
+  ai-service:
+    build:
+      context: ../apps/ai-service
+      dockerfile: Dockerfile
+    container_name: placementos-ai-service
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - AI_SERVICE_SECRET=internal_service_token_placementos_dev
+      - LLM_PROVIDER=mock
+    depends_on:
+      - redis
+
+  api:
+    build:
+      context: .
+      dockerfile: ../apps/api/Dockerfile
+    container_name: placementos-api
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      - MONGODB_URI=mongodb://mongodb:27017/placementos
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - AI_SERVICE_URL=http://ai-service:8000
+      - JWT_ACCESS_SECRET=placementos_super_secret_access_key_2026_dev_mode
+      - JWT_REFRESH_SECRET=placementos_super_secret_refresh_key_2026_dev_mode
+    depends_on:
+      - mongodb
+      - redis
+      - ai-service
+
+  web:
+    build:
+      context: .
+      dockerfile: ../apps/web/Dockerfile
+    container_name: placementos-web
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:5000/api/v1
+    depends_on:
+      - api
+
+volumes:
+  mongo-data:
+  redis-data:

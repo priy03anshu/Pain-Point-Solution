@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const assessment_controller_1 = require("./assessment.controller");
+const auth_1 = require("../../common/middleware/auth");
+const validate_1 = require("../../common/middleware/validate");
+const shared_1 = require("@placementos/shared");
+const router = (0, express_1.Router)();
+router.use(auth_1.authenticate);
+router.post('/initial/start', assessment_controller_1.AssessmentController.startInitial);
+router.post('/:id/submit-answer', (0, validate_1.validateBody)(shared_1.submitAnswerSchema), assessment_controller_1.AssessmentController.submitAnswer);
+router.post('/:id/finalize', assessment_controller_1.AssessmentController.finalize);
+router.get('/results/:id', assessment_controller_1.AssessmentController.getResult);
+exports.default = router;
