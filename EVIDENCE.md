@@ -1,295 +1,128 @@
-# EVIDENCE.md
-
-# Student Placement Preparation & Career Challenges — Evidence
+# Evidence: Student Placement Preparation Challenges
 
 ## 1. Survey Overview
 
-This document records evidence collected through the **Student Placement Preparation & Career Challenges** survey.
+**Survey date:** 8 October 2026
+**Responses:** 14 students
+**Respondents:** Mainly 2nd–4th year students + 1 postgraduate
 
-- **Responses analysed:** 14
-- **Survey date:** 8 October 2026
-- **Respondent group:** Mainly 2nd-, 3rd-, and 4th-year students, plus one postgraduate respondent.
-- **Purpose:** Identify real problems students face while preparing for internships and placements and determine which features would be useful in a unified placement-preparation tool.
-
-The source survey contains questions covering placement readiness, preparation difficulty, skill matching, tools currently used, problems with existing tools, desired features, personalised preparation plans, Job Description analysis, and willingness to test a prototype. fileciteturn0file0L1-L4
+**Goal:** Validate whether students face problems while preparing for internships/placements and identify what they need from a unified preparation tool.
 
 ---
 
 ## 2. Who Has the Problem?
 
-The responses show that the problem is concentrated among students who are actively preparing for internships and placements.
+**12/14 (85.7%)** respondents are already preparing for placements:
 
-### Preparation status
+* **11** actively preparing
+* **1** preparing occasionally
+* **2** planning to start
 
-Of the 14 responses:
-
-- **11** respondents said they are **actively** preparing.
-- **1** respondent is preparing **occasionally**.
-- **2** respondents said they are **not yet preparing but plan to**.
-
-This means **12 of 14 respondents (85.7%)** are already engaging with placement preparation to some degree.
-
-Examples:
-- A 3rd-year student actively preparing listed **knowing which skills companies require** and **DSA/coding preparation** as challenges.
-- Another 3rd-year student listed **finding suitable jobs/internships** and knowing which skills companies require.
-- A 4th-year respondent identified **DSA/coding preparation** and **technical interviews**.
-- A postgraduate respondent identified **resume building** and **finding suitable jobs/internships**. fileciteturn0file0L4-L30
+Students reported challenges including DSA/coding, technical interviews, finding suitable jobs, understanding required skills, resumes, and interview preparation.
 
 ---
 
-## 3. Main Problems Identified
+## 3. Key Pain Points
 
-### A. Information is scattered
+### Information is Scattered
 
-**Information being scattered** appears repeatedly as a problem with existing placement-preparation tools.
+Students use multiple platforms instead of one connected workflow:
 
-Examples include respondents reporting:
+**ChatGPT, Gemini, LinkedIn, LeetCode, GeeksforGeeks, YouTube, Naukri, resume builders, interview platforms, friends/seniors.**
 
-- "Information is scattered"
-- "Scattered of information"
-- Information scattered alongside generic advice and difficulty prioritising.
+Respondents repeatedly mentioned **"scattered information"** as a problem.
 
-This indicates that students are using multiple platforms and sources rather than relying on one coherent preparation workflow. fileciteturn0file0L4-L30
+### Difficult to Know What to Prioritize
 
-### B. Students struggle to know what to prioritise
+When asked how difficult it is to know what to focus on for a specific job:
 
-Several responses mention difficulty deciding:
+* **Average:** 3.21 / 5
+* **10/14** rated the difficulty **3 or higher**
+* **7/14** rated it **4 or 5**
 
-- what to focus on for a specific job,
-- what to prioritise,
-- which skills companies require,
-- and what preparation should come next.
+### Unclear Skill Match
 
-One response specifically identified **"Difficult to know what to prioritize"**, while another reported difficulty knowing what to prepare. fileciteturn0file0L4-L30
+Most respondents selected **"Somewhat well"** or **"Not sure"** when asked how confidently they can determine whether their skills match a job. Only **1 respondent** selected "Very well."
 
-### C. Missing skill identification
+### Generic Advice
 
-Respondents selected **Missing skill identification** as a useful feature for a unified placement tool.
+Students reported that existing tools can provide:
 
-This connects directly with the problem of understanding whether a student's existing skills match what a company or Job Description requires. fileciteturn0file0L4-L30
-
-### D. Existing advice can be too generic
-
-Multiple respondents reported that current tools provide **generic advice** rather than guidance tailored to their specific situation.
-
-For example, respondents mentioned:
-
-- "Advice is too generic"
-- "Tools do not understand my skill level"
-- difficulty deciding what to prioritise.
-
-This suggests a need for more personalised, context-aware preparation rather than generic placement advice. fileciteturn0file0L8-L30
-
-### E. Students use many disconnected tools
-
-Respondents reported using combinations of:
-
-- ChatGPT
-- Gemini
-- LinkedIn
-- LeetCode
-- GeeksforGeeks
-- YouTube
-- Naukri
-- Resume builders
-- Interview preparation platforms
-- Friends and seniors
-
-The repeated combination of multiple platforms supports the observation that placement preparation is distributed across several tools. fileciteturn0file0L4-L30
+* Generic advice
+* Poor understanding of their skill level
+* Limited guidance on what to prioritize next
 
 ---
 
-## 4. Difficulty of Knowing What to Focus On
+## 4. What Students Want
 
-Respondents rated the difficulty of knowing what to focus on for a specific job on a **1–5 scale**.
+The survey identified demand for:
 
-Recorded ratings:
+* **Job Description Analyzer**
+* **Resume vs JD comparison**
+* **Missing skill identification**
+* **DSA recommendations**
+* **Daily preparation tasks**
+* **Progress tracking**
+* Personalized preparation plans
 
-`5, 4, 4, 3, 3, 2, 3, 3, 4, 3, 4, 2, 1, 4`
+### Job Description Analyzer Validation
 
-### Result
+Among **13 recorded responses**:
 
-- **Average rating:** 3.21 / 5
-- **10 of 14 respondents** gave a rating of **3 or higher**.
-- **7 of 14 respondents** gave a rating of **4 or 5**.
+* Definitely Yes: **4**
+* Probably Yes: **6**
+* Maybe: **2**
+* Probably Not: **1**
 
-This provides evidence that deciding what to focus on for a particular job is a meaningful challenge for a substantial portion of the respondents. fileciteturn0file0L4-L30
-
----
-
-## 5. Skill-Matching Is Not Consistently Clear
-
-The survey asked respondents how well they can identify whether their skills match a job.
-
-The responses included:
-
-- Very well
-- Somewhat well
-- Not sure
-
-Most responses were **Somewhat well** or **Not sure**, with only one respondent selecting **Very well**.
-
-This indicates that many students do not have high confidence in assessing their own fit against a specific job requirement. fileciteturn0file0L4-L30
+Therefore, **10/13 (76.9%)** respondents said they would *Definitely* or *Probably* use a Job Description Analyzer.
 
 ---
 
-## 6. Features Students Consider Useful
+## 5. Evidence-Based Problem
 
-The survey responses repeatedly identified the following features:
+Students preparing for placements struggle to answer three questions:
 
-### Job Description Analyzer
-A Job Description Analyzer was repeatedly selected as a useful feature.
+> **What should I prepare?**
+> **What skills am I missing?**
+> **How well do my skills match this specific job?**
 
-### Resume vs Job Description Comparison
-Respondents selected comparison between a resume and a Job Description as a desired capability.
-
-### Missing Skill Identification
-Respondents wanted a system that can identify skills they are missing for a target role.
-
-### DSA Recommendations
-Some respondents specifically selected DSA recommendations.
-
-### Daily Preparation Tasks
-One response selected daily preparation tasks.
-
-### Progress Tracking
-One response selected progress tracking.
-
-These features directly connect the reported problems to potential product functionality. fileciteturn0file0L4-L30
+Their preparation is fragmented across multiple platforms, while existing tools generally solve individual tasks rather than connecting them into a personalized workflow.
 
 ---
 
-## 7. Demand for Personalised Preparation
+## 6. Proposed Solution
 
-Respondents rated how useful a personalised placement-preparation plan would be.
+A unified placement-preparation platform that can:
 
-Recorded ratings where a value was provided:
+1. Analyze a Job Description
+2. Extract required skills
+3. Compare the JD with the student's resume/skills
+4. Identify skill gaps
+5. Prioritize preparation
+6. Generate personalized tasks
+7. Provide DSA/interview practice
+8. Track progress
 
-`5, 5, 4, 4, 5, 3, 5, 5, 5, 3, 3`
-
-The survey therefore contains several high ratings, including multiple **5/5** responses, showing substantial interest in personalised preparation. Some responses did not contain a recorded rating, so they are not included in this calculation. fileciteturn0file0L4-L30
-
----
-
-## 8. Interest in a Job Description Analyzer
-
-The survey specifically asked:
-
-> Would you use a tool that analyzes a Job Description?
-
-Responses included:
-
-- **Definitely Yes**
-- **Probably Yes**
-- **Maybe**
-- **Probably Not**
-
-Among the clearly recorded responses:
-
-- **Definitely Yes:** 4
-- **Probably Yes:** 6
-- **Maybe:** 2
-- **Probably Not:** 1
-- **One response:** no recorded answer
-
-Thus, **10 of the 13 respondents with a recorded answer selected Definitely Yes or Probably Yes**.
-
-This is strong direct evidence for building a Job Description Analyzer as one of the core features. fileciteturn0file0L4-L30
+These features directly map to problems and feature requests identified in the survey.
 
 ---
 
-## 9. Examples of Specific Student Needs
+## 7. Validation
 
-The open-ended responses provide concrete examples of what students want help with:
+The survey provides initial evidence that:
 
-- **Aptitude**
-- **Knowing about the job they are preparing for**
-- **Just to crack a job**
-- **Explain everything from basics**
-- **HR interview and confidence**
-- **Resume builder**
-- **Scattered information**
-- **Communication**
-
-These responses show that students' needs span technical preparation, job understanding, resumes, interviews, communication, and organising preparation. fileciteturn0file0L4-L30
+* Placement preparation is already a priority for most respondents.
+* Students experience fragmented information and difficulty prioritizing.
+* Skill-to-job matching is unclear for many students.
+* Personalized preparation is highly desirable.
+* **76.9%** of recorded respondents showed positive interest in a JD Analyzer.
 
 ---
 
-## 10. Prototype Testing Interest
+## 8. Limitation
 
-The final survey questions asked whether respondents would be interested in testing a prototype and whether they would provide feedback.
+This survey contains only **14 responses**. It demonstrates that these pain points exist within the surveyed group, but it is **not statistically representative of all students**.
 
-The responses include multiple **Yes** answers, along with some **Maybe** and **No** answers.
+Further validation should involve a larger and more diverse student sample.
 
-This indicates that there is a group of respondents willing to participate in prototype testing and feedback, which can support an initial validation/testing phase. fileciteturn0file0L4-L30
-
----
-
-## 11. Evidence-Based Problem Statement
-
-### Problem
-
-Students preparing for internships and placements struggle to determine **what to prepare, which skills they are missing, and how their current skills match the requirements of a specific job**.
-
-Their preparation is spread across multiple platforms such as ChatGPT, Gemini, LinkedIn, LeetCode, YouTube, Naukri, and other preparation tools. Respondents specifically reported **scattered information, generic advice, difficulty prioritising preparation, and uncertainty about skill matching**.
-
-### Why Existing Tools Fall Short
-
-The survey evidence suggests that existing tools often address individual parts of placement preparation rather than connecting them into one personalised workflow.
-
-Students may find information, practise DSA, build resumes, search for jobs, or prepare for interviews on separate platforms, but the responses show a need for help connecting these activities to a **specific target job**.
-
-### Proposed Opportunity
-
-A unified placement-preparation tool could:
-
-1. Analyse a Job Description.
-2. Extract required skills and responsibilities.
-3. Compare those requirements with the student's resume/skills.
-4. Identify missing skills.
-5. Recommend what to prioritise.
-6. Generate personalised preparation tasks.
-7. Provide relevant DSA/interview preparation.
-8. Track preparation progress.
-
-These proposed capabilities are grounded in features selected by survey respondents, particularly Job Description analysis, resume-vs-Job-Description comparison, missing skill identification, DSA recommendations, daily preparation tasks, and progress tracking. fileciteturn0file0L4-L30
-
----
-
-## 12. Key Evidence Summary
-
-| Evidence | Survey finding |
-|---|---|
-| Sample size | 14 responses |
-| Actively preparing | 11/14 |
-| Preparing occasionally | 1/14 |
-| Planning to prepare | 2/14 |
-| Difficulty focusing on a specific job | Average 3.21/5 |
-| Difficulty rating ≥ 3 | 10/14 |
-| Rating 4–5 for difficulty | 7/14 |
-| Common current tools | ChatGPT, Gemini, LinkedIn, LeetCode, YouTube, Naukri and others |
-| Repeated problem | Information is scattered |
-| Repeated problem | Generic advice / difficulty prioritising |
-| Desired feature | Job Description Analyzer |
-| Desired feature | Resume vs Job Description comparison |
-| Desired feature | Missing skill identification |
-| Desired feature | DSA recommendations |
-| Desired feature | Daily preparation tasks |
-| Desired feature | Progress tracking |
-| JD Analyzer interest | 10/13 recorded answers = Definitely/Probably Yes |
-
----
-
-## 13. Important Limitation
-
-This evidence is based on a **small survey sample of 14 respondents collected on 8 October 2026**. It demonstrates that the identified problems exist among the surveyed students, but it should not be presented as statistically representative of all students.
-
-The strongest claims supported by this survey are therefore about **observed pain points and interest within this respondent group**, not the entire student population.
-
----
-
-## 14. Source
-
-**Source file:** `Student Placement Preparation and Career Challenges (Responses) - Google Sheets.pdf`
-
-All findings in this document are derived from the uploaded survey response data. fileciteturn0file0L1-L30
